@@ -1,5 +1,5 @@
 // JS
-// selecting your Canvas
+// selecting your Canvas5
 let canvas = document.querySelector('canvas');
 console.log(canvas);
 
