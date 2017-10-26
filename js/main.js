@@ -1,7 +1,7 @@
 // JS
 // selecting your Canvas5
 let canvas = document.querySelector('canvas');
-console.log(canvas);
+// console.log(canvas);
 
 // resizing your canvas
 canvas.height = window.innerHeight;
@@ -17,7 +17,7 @@ function randomIntegerFromRange (min, max) {
 }
 
 // Utility function to get random colors
-const randomColorArray = ['#FF530D', '#E82C0C', '#FF0000', '#E80C7A', '#FF0DFF'];
+const randomColorArray = ['#FF530D', '#E82C0C', '#FF0000', '#E80C7A', '#FF0DFF']; // From Kuler
 function randomColors(randomColorArray) {
     return randomColorArray[randomIntegerFromRange(0,4)];
 }
@@ -31,19 +31,19 @@ function Particle (x, y, radius, color) {
     this.radius = radius;
     this.color = color;
     this.radians =  Math.random() * Math.PI * 2; // random angle spawner (0-360)
-    this.velocity = 0.02;
+    this.velocity = 0.02; // how fast we change
     // this.distanceFromCenter = { x:  randomIntegerFromRange(90, 120),y:  randomIntegerFromRange(90, 120)}; // Coolest option 
     this.distanceFromCenter = randomIntegerFromRange(250, 300);
     // update function
     this.update = function() {
-        // We store the last particle positon
-        const lastPoint = { x: this.x, y: this.y };
         // Behaviour1: move points over time
         this.radians += (this.velocity);
-        // Behaviour2: circular motion
+        // Behaviour2: circular motion position
         this.x = x + (Math.cos(this.radians)) * this.distanceFromCenter;
         this.y = y + (Math.sin(this.radians)) *  this.distanceFromCenter;
-        // Draw > pass lasPoint
+        // We store the last particle positon
+        const lastPoint = { x: this.x, y: this.y };
+        // Draw > pass lastPoint
         this.draw(lastPoint);
     };
     // draw function
@@ -85,7 +85,9 @@ function animate() {
     // Trail effect
     ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // For each
     particles.forEach( function(particle) { particle.update() });
+    // Creates a Loop
     requestAnimationFrame(animate);
 }
 // animate call
