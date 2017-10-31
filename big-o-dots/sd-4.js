@@ -4,8 +4,8 @@ let canvas = document.querySelector('canvas');
 // console.log(canvas);
 
 // resizing your canvas
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+canvas.height = window.innerHeight; // 4000
+canvas.width = window.innerWidth; // 4000
 
 // canvas execution context
 let ctx = canvas.getContext('2d');
@@ -39,8 +39,8 @@ function Particle (x, y, radius, color) {
         // Behaviour1: move points over time
         this.radians += (this.velocity);
         // Behaviour2: circular motion position
-        this.x = x + (Math.cos(this.radians)) * this.distanceFromCenter.x * 3;
-        this.y = y + (Math.sin(this.radians)) *  this.distanceFromCenter.y * 3;
+        this.x = x + (Math.cos(this.radians)) * this.distanceFromCenter.x * 3; // 30
+        this.y = y + (Math.sin(this.radians)) *  this.distanceFromCenter.y * 3; // 30
         // We store the last particle positon
         const lastPoint = { x: this.x, y: this.y };
         // Draw > pass lastPoint
