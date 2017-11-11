@@ -36,13 +36,6 @@ setInterval(function() {
     }, 0.1);
 },1000);
 
-//console.log(finalBtcValue);
-
-
-// setInterval( function() {
-//     console.log(btc);
-// },1000);
-
 
 // 1. Loop A
 let posX = Math.random() * canvas.width;
